@@ -4,15 +4,34 @@ document.addEventListener("DOMContentLoaded", function() {
     const sendButton = document.getElementById("send-button");
 
     // Function to send a user message to OpenAI and display the response
-    function sendMessageToChatbot(message) {
-        // Implement OpenAI API integration here
-        // You'll need to set up the API call and handle the response
+    function sendMessageToOpenAI(message) {
+        const apiKey = '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'; // Replace with your actual API key
+        const apiUrl = 'https://api.openai.com/v1/engines/davinci/completions'; // API endpoint
 
-        // For example, you can use a mock response for testing:
-        const botResponse = "This is a sample bot response.";
+        // Prepare the request data
+        const requestData = {
+            prompt: message,
+            max_tokens: 50, // Adjust as needed
+        };
 
-        displayMessage("You", message);
-        displayMessage("Chatbot", botResponse);
+        // Make the API request
+        fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${apiKey}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(requestData),
+        })
+        .then(response => response.json())
+        .then(data => {
+            const botResponse = data.choices[0].text;
+            displayMessage('You', message);
+            displayMessage('Chatbot', botResponse);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
     }
 
     // Function to display a message in the chat interface
@@ -24,11 +43,11 @@ document.addEventListener("DOMContentLoaded", function() {
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
-    // Handle user input and send messages to the chatbot
+    // Handle user input and send messages to OpenAI
     sendButton.addEventListener("click", function() {
         const userMessage = userInput.value.trim();
         if (userMessage !== "") {
-            sendMessageToChatbot(userMessage);
+            sendMessageToOpenAI(userMessage);
             userInput.value = "";
         }
     });
