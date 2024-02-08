@@ -3,22 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/style.css">
-    <title>OpenAI Chatbot</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>My Blog</title>
 </head>
 <body>
-    <div class="chat-container">
-        <div class="chat-header">
-            <h1>OpenAI Chatbot</h1>
-        </div>
-        <div class="chat-messages" id="chat-messages">
-            <!-- Messages will be displayed here -->
-        </div>
-        <div class="chat-input">
-            <input type="text" id="user-input" placeholder="Type a message...">
-            <button id="send-button">Send</button>
-        </div>
-    </div>
-    <script src="scripts/script.js"></script>
+    <header>
+        <h1>My Awesome Blog</h1>
+        <p>Exploring Life, Tech, and Everything in Between</p>
+    </header>
+
+    <main class="container">
+        <section class="blog-posts">
+            <article class="post">
+                <h2>Why Coding Is My Passion</h2>
+                <p class="post-date">Published on February 8, 2024</p>
+                <img src="coding.jpg" alt="Coding Image">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus euismod, justo vel...</p>
+                <a href="blog/why-coding-passion.html">Read more</a>
+            </article>
+            <!-- Add more blog posts here -->
+        </section>
+
+        <aside class="sidebar">
+            <div class="about-me">
+                <h3>About Me</h3>
+                <img src="profile.jpg" alt="Profile Image">
+                <p>Hi, I'm Jane! A web developer and coffee enthusiast.</p>
+            </div>
+            <!-- Add other widgets (popular posts, social links, etc.) here -->
+        </aside>
+    </main>
+
+    <footer>
+        <p>© 2024 My Awesome Blog</p>
+    </footer>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
