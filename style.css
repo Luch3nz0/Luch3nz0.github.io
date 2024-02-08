@@ -1,54 +1,31 @@
-/* Reset some default styles */
-body, h1, div, input, button {
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
     margin: 0;
     padding: 0;
 }
 
-body {
-    font-family: Arial, sans-serif;
-}
-
-/* Style the chat container */
-.chat-container {
-    width: 300px;
-    margin: 0 auto;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Style the chat header */
-.chat-header {
+header {
     background-color: #333;
     color: #fff;
     text-align: center;
-    padding: 10px;
+    padding: 20px;
 }
 
-/* Style the chat messages area */
-.chat-messages {
-    max-height: 400px;
-    overflow-y: scroll;
-    padding: 10px;
-}
-
-/* Style the user input field and send button */
-.chat-input {
+.container {
     display: flex;
-    align-items: center;
-    padding: 10px;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-input[type="text"] {
-    flex: 1;
-    padding: 5px;
+.post {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
 }
 
-button {
-    background-color: #333;
-    color: #fff;
-    padding: 5px 10px;
-    border: none;
-    cursor: pointer;
-}
+/* Add more styling rules as needed */
