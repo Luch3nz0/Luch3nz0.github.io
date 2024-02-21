@@ -3,41 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>My Blog</title>
+    <style>
+        /* Style for the circle */
+        .circle {
+            width: 300px;
+            height: 300px;
+            border: 2px solid #000;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        /* Style for community points */
+        .community {
+            position: absolute;
+            background-color: #3498db;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>My Awesome Blog</h1>
-        <p>Exploring Life, Tech, and Everything in Between</p>
-    </header>
+    <div class="circle">
+        <!-- Sample communities (you can dynamically generate these) -->
+        <div class="community" style="top: 50px; left: 150px;"></div>
+        <div class="community" style="top: 100px; left: 250px;"></div>
+        <div class="community" style="top: 200px; left: 200px;"></div>
+        <!-- Add more community points as needed -->
+    </div>
 
-    <main class="container">
-        <section class="blog-posts">
-            <article class="post">
-                <h2>Why Coding Is My Passion</h2>
-                <p class="post-date">Published on February 8, 2024</p>
-                <img src="coding.jpg" alt="Coding Image">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus euismod, justo vel...</p>
-                <a href="blog/why-coding-passion.html">Read more</a>
-            </article>
-            <!-- Add more blog posts here -->
-        </section>
+    <script>
+        // JavaScript logic for sampling communities
+        const communities = [
+            { name: 'Community A', country: 'Country X', religion: 'Religion 1' },
+            { name: 'Community B', country: 'Country Y', religion: 'Religion 2' },
+            { name: 'Community C', country: 'Country Z', religion: 'Religion 3' }
+            // Add more community objects here
+        ];
 
-        <aside class="sidebar">
-            <div class="about-me">
-                <h3>About Me</h3>
-                <img src="profile.jpg" alt="Profile Image">
-                <p>Hi, I'm Jane! A web developer and coffee enthusiast.</p>
-            </div>
-            <!-- Add other widgets (popular posts, social links, etc.) here -->
-        </aside>
-    </main>
+        // Function to display communities on the circle
+        function displayCommunities() {
+            const circle = document.querySelector('.circle');
+            const radius = circle.clientWidth / 2;
+            const centerX = radius;
+            const centerY = radius;
 
-    <footer>
-        <p>© 2024 My Awesome Blog</p>
-    </footer>
+            communities.forEach((community, index) => {
+                const angle = (index / communities.length) * 2 * Math.PI;
+                const x = centerX + radius * Math.cos(angle);
+                const y = centerY + radius * Math.sin(angle);
 
-    <script src="scripts.js"></script>
+                const communityPoint = document.createElement('div');
+                communityPoint.className = 'community';
+                communityPoint.style.top = y + 'px';
+                communityPoint.style.left = x + 'px';
+
+                // Customize the community point (e.g., add labels, tooltips, etc.)
+                // Example: communityPoint.title = community.name;
+
+                circle.appendChild(communityPoint);
+            });
+        }
+
+        // Call the function to display communities
+        displayCommunities();
+    </script>
 </body>
 </html>
